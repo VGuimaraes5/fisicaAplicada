@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovimentoVetores : MonoBehaviour
 {
+    public Vector3 aceleracao_inicial;
     public Vector3 forca_1; // (1, 2, 3)
     public Vector3 forca_2; // (2, -1, 3)
     public Vector3 forca_3; // (-1, 3, -4)
@@ -18,8 +19,8 @@ public class MovimentoVetores : MonoBehaviour
 
     void Start()
     {
-        forcaResultante = somaForcas();
         rigidbody_1 = GetComponent<Rigidbody>();
+        forcaResultante = somaForcas();
         calculaAceleracao();
     }
 
@@ -33,7 +34,8 @@ public class MovimentoVetores : MonoBehaviour
     private Vector3 somaForcas()
     {
 
-        Vector3 Resultante = forca_1 + forca_2 + forca_3;
+        // Vector3 Resultante = forca_1 + forca_2 + forca_3;
+        Vector3 Resultante = rigidbody_1.mass * aceleracao_inicial;
         return Resultante;
     }
 
