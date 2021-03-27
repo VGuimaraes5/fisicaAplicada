@@ -63,6 +63,7 @@ public class Mola : MonoBehaviour
 
     private void UpdatePosition()
     {
-        esfera.transform.position += velocity * Time.fixedDeltaTime + (acceleration * Mathf.Pow(Time.deltaTime, 2)) / 2.0f;
+        esfera.transform.position += velocity * Time.fixedDeltaTime + (acceleration * Mathf.Pow(Time.fixedDeltaTime, 2)) / 2.0f;
+        transform.position -= velocity * Time.fixedDeltaTime + (acceleration * Mathf.Pow(Time.fixedDeltaTime, 2)) / 2.0f;
     }
 }
